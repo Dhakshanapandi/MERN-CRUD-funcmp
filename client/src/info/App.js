@@ -10,13 +10,13 @@ const App = () => {
   const create = (data) => {
     if (data.isEdit === false) {
       axios
-        .post("http://localhost:5000/info/createstudent", data)
+        .post("https://react-crud3.onrender.com/info/createstudent", data)
         .then((res) => {
           console.log("creation");
           getAll();
         });
     } else {
-      axios.put("http://localhost:5000/info/update", data).then((res) => {
+      axios.put("https://react-crud3.onrender.com/info/update", data).then((res) => {
         console.log("updation");
         getAll();
       });
@@ -27,7 +27,7 @@ const App = () => {
   }, []);
 
   const getAll = () => {
-    axios.get("http://localhost:5000/info/get").then((res) => {
+    axios.get("https://react-crud3.onrender.com/info/get").then((res) => {
       datafunc(res.data);
     });
   };
@@ -40,7 +40,7 @@ const App = () => {
 
     if (option) {
       axios
-        .delete(`http://localhost:5000/info/delete/${data._id}`)
+        .delete(`https://react-crud3.onrender.com/info/delete/${data._id}`)
         .then((res) => {
           getAll();
         });
